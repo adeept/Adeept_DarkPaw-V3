@@ -31,11 +31,6 @@ batteryMonitor = Voltage.BatteryLevelMonitor()
 batteryMonitor.start()
 steadyMode = 0
 
-
-def  ap_thread():
-    os.system("sudo create_ap wlan0 eth0 AdeeptCar 12345678")
-
-
 def get_cpu_tempfunc():
     """ Return CPU temperature """
     result = 0
@@ -259,35 +254,6 @@ if __name__ == '__main__':
         ws2812.led_close()
         pass
     while  1:
-        try:
-            s =socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-            s.connect(("1.1.1.1",80))
-            ipaddr_check=s.getsockname()[0]
-            s.close()
-            print(ipaddr_check)
-        except:
-            ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
-            ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
-            ap_threading.start()                                  #Thread starts
-
-            ws2812.set_all_led_color_data(0,16,50)
-            ws2812.show()
-            time.sleep(1)
-            ws2812.set_all_led_color_data(0,16,100)
-            ws2812.show()
-            time.sleep(1)
-            ws2812.set_all_led_color_data(0,16,150)
-            ws2812.show()
-            time.sleep(1)
-            ws2812.set_all_led_color_data(0,16,200)
-            ws2812.show()
-            time.sleep(1)
-            ws2812.set_all_led_color_data(0,16,255)
-            ws2812.show()
-            time.sleep(1)
-            ws2812.set_all_led_color_data(35,255,35)
-            ws2812.show()
-
         try:
             tcpSerSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             tcpSerSock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
