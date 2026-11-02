@@ -96,6 +96,7 @@ for x in range(3):
         break
 
 commands_pip_1 = [
+"sudo pip3 install Adafruit-Blinka-Raspberry-Pi-PWM rpi_ws281x",
 "sudo pip3 install adafruit-pca9685",
 "sudo pip3 install flask",
 "sudo pip3 install flask_cors",
@@ -108,6 +109,7 @@ commands_pip_1 = [
 "sudo pip3 install imutils pybase64 psutil",
 ]
 commands_pip_2 = [
+"sudo pip3 install Adafruit-Blinka-Raspberry-Pi-PWM rpi_ws281x --break-system-packages",
 "sudo pip3 install adafruit-pca9685 --break-system-packages",
 "sudo pip3 install flask --break-system-packages",
 "sudo pip3 install flask_cors --break-system-packages",
